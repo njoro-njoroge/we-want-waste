@@ -8,11 +8,23 @@ This project is a redesign of the "Choose Your Skip Size" page for [WeWantWaste.
 2. user experience,
 3. clean React code.
 
+## My Approach
+1. Problem & Goals
+Original page: Functional but outdated design, unclear selection states, and limited mobile optimization.
+
+**Problem & Goals**
+Original page: Functional but outdated design, unclear selection states, and limited mobile optimization.
+
+**My focus**
+-Preserve core functionality while modernizing the UI.
+-Prioritize mobile-first responsiveness.
+-Improve accessibility (keyboard navigation, ARIA labels).
+-Keep code modular and maintainable.
+
 **Image Handling**
 Since the skip data response from the provided API did not include image URLs, I used locally stored images inside assets/images/skips/ and dynamically mapped them based on the skip size.
 
 **THE HELP FUNCTION USED**
-
 <pre>
  ```js export const getSkipImage = (size) => { return new URL(`../assets/images/skips/${size}.jpg`, import.meta.url).href; }; ```
   </pre>
