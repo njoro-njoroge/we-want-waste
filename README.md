@@ -1,12 +1,51 @@
-# React + Vite
+# Acknowledgement
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Challenge by WeWantWaste. Developed by Njoroge as part of a frontend evaluation task
 
-Currently, two official plugins are available:
+This project is a redesign of the "Choose Your Skip Size" page for [WeWantWaste.co.uk](https://wewantwaste.co.uk). The original functionality is preserved, but the design has been completely modernized with a focus on
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. mobile responsiveness,
+2. user experience,
+3. clean React code.
 
-## Expanding the ESLint configuration
+**Image Handling**
+Since the skip data response from the provided API did not include image URLs, I used locally stored images inside assets/images/skips/ and dynamically mapped them based on the skip size.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**THE HELP FUNCTION USED**
+
+<pre>
+ ```js export const getSkipImage = (size) => { return new URL(`../assets/images/skips/${size}.jpg`, import.meta.url).href; }; ```
+  </pre>
+
+## Features
+
+- Modern and clean UI using **React** and **Tailwind CSS**
+- Fully **responsive** layout for mobile and desktop
+- Accessible skip selection using buttons and keyboard support
+- Dynamic data fetching from the provided API endpoint
+- Highlights selected skip and maintains accessibility standards
+
+## Tech Stack
+
+- **React 19** – For building the user interface
+- **Tailwind CSS** – For utility-first responsive styling
+- **Axios** – For handling API requests
+- **Vite** – As the development build tool
+
+### 1. Getting Started
+
+```bash
+git clone https://github.com/njoro-njoroge/we-want-waste
+```
+
+### 2. Install Dependencies
+
+npm install
+
+### 3. Run Development Server
+
+npm run dev
+
+**Live Demo**
+You can try the live version of this redesign here:
+https://codesandbox.io/p/sandbox/github/njoro-njoroge/we-want-waste
