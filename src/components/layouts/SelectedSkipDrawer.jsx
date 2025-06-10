@@ -6,7 +6,7 @@ export default function SelectedSkipDrawer({ skip, onClose }) {
   return (
     <div className="skip-drawer-container ">
       {/* Overlay */}
-      <div className="inset-0 bg-opacity-50" onClick={onClose} />
+      <div className="fixed inset-0 bg-black/20 z-40" onClick={onClose} />
 
       {/* Drawer Panel in top-right corner */}
       <div className="top-drawer-panel">

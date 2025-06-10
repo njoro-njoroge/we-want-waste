@@ -20,7 +20,8 @@
   @apply text-gray-800 font-semibold text-lg;
 }
 .drawer-container {
-  @apply sm:hidden fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-white to-gray-100 shadow-lg z-50;
+  @apply sm:hidden fixed top-0 left-0 h-auto max-h-screen w-64 bg-gradient-to-b from-white to-gray-100 shadow-lg z-50;
+  pointer-events: auto;
 }
 .drawer-close {
   @apply p-4 border-b border-gray-200 flex justify-between items-center;
@@ -55,46 +56,53 @@
 }
 
 /* Skip card */
-.skip-card {
-  @apply relative rounded-xl transition-all duration-300 
-  ease-[cubic-bezier(0.34,1.56,0.64,1)] cursor-pointer bg-gradient-to-br
-   from-blue-50 to-cyan-50 border border-gray-100 focus:outline-none
-    focus:ring-2 focus:ring-cyan-400  overflow-hidden w-full h-full
-     flex flex-col shadow-md hover:shadow-xl transform hover:-translate-y-1
-      hover:scale-[1.02];
-}
-.image-container {
-  @apply relative w-full aspect-[5/3] overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100;
+
+.selected-banner {
+  @apply absolute top-2 right-2 bg-gradient-to-r from-green-500 to-cyan-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 shadow-sm;
 }
 .road-placement-banner {
   @apply absolute top-1 left-2 bg-amber-600 text-white py-1 px-3 rounded-md text-xs font-bold flex items-center gap-1 shadow-sm;
 }
-.skip-card-image {
-  @apply w-full h-full object-cover transition-opacity duration-300;
-}
+
 .heavy-waste-banner {
   @apply absolute bottom-1 right-1 bg-amber-600/90 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1 shadow-sm;
 }
-.skip-card-content {
-  @apply p-4 flex flex-col flex-grow bg-white/80 backdrop-blur-sm;
+
+/* Skip list card */
+.skip-card-list {
+  @apply relative flex flex-row items-stretch w-full bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden transition-all duration-300 ease-in-out;
 }
-.select-skip-btn {
-  @apply bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-1 px-1 rounded-md  text-sm
-              transition-all duration-200 shadow-sm
-              hover:shadow-md focus:shadow-md
-              focus:outline-none focus:ring-2 focus:ring-blue-400
-              transform group-hover:translate-y-0 translate-y-1;
+
+.image-container-list {
+  @apply flex py-2 md:pl-2 w-60 h-40 md:w-62 items-center md:h-48 flex-shrink-0 overflow-hidden rounded-l-xl relative;
 }
-.selected-banner {
-  @apply absolute top-2 right-2 bg-gradient-to-r from-green-500 to-cyan-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 shadow-sm;
+
+.skip-card-content-list {
+  @apply flex-col justify-end p-4 w-full gap-2;
+}
+
+.skip-card-image-list {
+  @apply w-full h-42 object-cover;
+}
+
+.heavy-waste-banner-list {
+  @apply absolute bottom-1 left-1 z-10 bg-gradient-to-r bg-amber-600/90 text-white text-xs font-semibold px-2 py-1 rounded flex items-center gap-1 shadow;
+}
+
+.select-skip-btn-list {
+  @apply transition-opacity duration-300 px-4 py-1 bg-blue-500 text-white text-sm font-medium rounded shadow;
+}
+
+.selected-banner-list {
+  @apply absolute top-2 right-2 bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded flex items-center gap-1 shadow;
 }
 
 /* Skip drawer */
 .skip-drawer-container {
-  @apply fixed w-full mt-12 inset-0 z-50 overflow-y-auto;
+  @apply fixed top-0 right-0 z-50 flex items-start justify-end w-full h-full pointer-events-none;
 }
 .top-drawer-panel {
-  @apply absolute top-4 right-4 w-full max-w-sm bg-white shadow-2xl shadow-black p-6 rounded-lg z-10;
+  @apply bg-white shadow-lg w-full sm:w-[26rem] p-6 rounded-bl-xl pointer-events-auto;
 }
 .drawer-back-btn {
   @apply px-4 py-2 bg-black text-white rounded hover:bg-gray-400;
