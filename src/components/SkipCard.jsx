@@ -27,13 +27,13 @@ export default function SkipCard({ skip, isSelected, onSelect }) {
       aria-pressed={isSelected}
       tabIndex={0}>
       {/* img Container */}
-      <div className="relative w-full aspect-[5/3] overflow-hidden bg-gradient-to-br from-blue-100 to-cyan-100">
+      <div className="image-container">
         {isImageLoading && <SmallSpinner />}
 
         {/* Road Placement Banner */}
         {!skip.allowed_on_road && (
           <div
-            className="absolute top-2 left-2 bg-amber-600 text-white py-1 px-3 rounded-md text-xs font-bold flex items-center gap-1 shadow-sm"
+            className="road-placement-banner"
             aria-label="This skip cannot be placed on the road">
             <FiAlertTriangle size={12} />
             <span>ROAD USE PROHIBITED</span>
@@ -51,7 +51,7 @@ export default function SkipCard({ skip, isSelected, onSelect }) {
                 .href
             )
           }
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`skip-card-image ${
             isImageLoading ? "opacity-0" : "opacity-100"
           }`}
         />
@@ -63,9 +63,7 @@ export default function SkipCard({ skip, isSelected, onSelect }) {
 
         {/* Heavy Waste Indicator */}
         {!skip.allows_heavy_waste && (
-          <div
-            className="absolute bottom-2 right-2 bg-amber-600/90 text-white px-3 py-1 rounded-md text-xs font-bold flex items-center gap-1 shadow-sm"
-            aria-label="Allows heavy waste">
+          <div className="heavy-waste-banner" aria-label="Allows heavy waste">
             <FiSlash size={12} />
             <span>NO HEAVY WASTE</span>
           </div>
@@ -73,7 +71,7 @@ export default function SkipCard({ skip, isSelected, onSelect }) {
       </div>
 
       {/* Card Content */}
-      <div className="p-4 flex flex-col flex-grow bg-white/80 backdrop-blur-sm">
+      <div className="skip-card-content">
         <div className="mb-3">
           <h2 className="text-lg font-bold text-yellow-800">
             {skip.size} YARD Skip
@@ -97,16 +95,12 @@ export default function SkipCard({ skip, isSelected, onSelect }) {
               }
             }}
             className={`
-              bg-gradient-to-r from-cyan-500 to-blue-500 text-white py-2 px-4 rounded-md font-medium text-sm
-              transition-all duration-200 shadow-sm
+              select-skip-btn
               ${
                 isSelected
                   ? "opacity-100 ring-2 ring-blue-400"
                   : "opacity-0 group-hover:opacity-100"
               }
-              hover:shadow-md focus:shadow-md
-              focus:outline-none focus:ring-2 focus:ring-blue-400
-              transform group-hover:translate-y-0 translate-y-1
             `}
             aria-label={`Select ${skip.size} yard skip for £${skip.price_before_vat}`}>
             {isSelected ? "Selected" : "Select"}
@@ -121,7 +115,7 @@ export default function SkipCard({ skip, isSelected, onSelect }) {
       {/* Selected Indicator */}
       {isSelected && (
         <div
-          className="absolute top-2 right-2 bg-gradient-to-r from-green-500 to-cyan-500 text-white px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 shadow-sm"
+          className="selected-banner "
           aria-hidden="true">
           <FiCheckCircle size={12} />
           <span>SELECTED</span>
