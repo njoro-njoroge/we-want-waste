@@ -1,0 +1,13 @@
+@import "tailwindcss";
+html,
+body,
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+body {
+  @apply bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-700;
+}
+.main-container {
+  @apply pt-16  min-h-screen;
+}
