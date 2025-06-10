@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useSkipsByLocation } from "../api/hooks/customHooks";
-import SkipCard from "../components/SkipCard";
+import SkipListCard from "../components/SkipListCard";
 import SelectedSkipDrawer from "../components/layouts/SelectedSkipDrawer";
 import { FiChevronDown, FiFilter, FiInbox } from "react-icons/fi";
 import { LoadingSpinner } from "../components/LoadingSpinner";
@@ -129,13 +129,32 @@ export function SkipList() {
       </div>
 
       {/* Skip Cards */}
-      <div className="space-y-4">
+      {/* <div className="space-y-4 grid-view">
         <div
           role="list"
           aria-label="Available skip sizes"
           className="skip-grid">
           {sortedSkips.map((skip) => (
             <SkipCard
+              key={skip.id}
+              skip={skip}
+              isSelected={selected === skip.id}
+              onSelect={() => {
+                setSelected(skip.id);
+                setSelectedSkipId(skip.id);
+              }}
+            />
+          ))}
+        </div>
+      </div> */}
+
+      <div className="space-y-4 list-view">
+        <div
+          role="list"
+          aria-label="Available skip sizes"
+          className="grid grid-cols-1 gap-1 md:gap-2  md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 p-4 w-full space-y-4 mx-auto">
+          {sortedSkips.map((skip) => (
+            <SkipListCard
               key={skip.id}
               skip={skip}
               isSelected={selected === skip.id}
