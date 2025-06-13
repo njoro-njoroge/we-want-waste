@@ -62,4 +62,4 @@ npm run dev
 
 **Live Demo**
 You can try the live version of this redesign here:
-https://tl8whh-5173.csb.app/
+https://codesandbox.io/p/sandbox/github/njoro-njoroge/we-want-waste
