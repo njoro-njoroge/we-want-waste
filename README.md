@@ -63,3 +63,9 @@ npm run dev
 **Live Demo**
 You can try the live version of this redesign here:
 https://codesandbox.io/p/sandbox/github/njoro-njoroge/we-want-waste
+
+### Screenshots
+![Small screen](screenshots/image-1.jpeg)
+![Screen 768*1024](screenshots/image-2.jpeg)
+![Sceen 1440*900](screenshots/image-3.png)
+![Select skip popup ](screenshots/image-4.png)
